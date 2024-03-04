@@ -1,9 +1,11 @@
+shared:
+    image: node:20
 jobs:
     main:
         requires: [~pr, ~commit]
-        image: node:8
+        template: sd/noop
         steps:
-            - echo: echo hi
-            - meta: |
+            - noop: echo hi
+            - teardown-meta: |
                 meta set meta.status.coverage '{"status":"SUCCESS","message":"Coverage is above 80%."}'
                 meta set meta.status.pendingTest '{"status":"PENDING","message":"Still working on it."}'
