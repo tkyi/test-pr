@@ -5,7 +5,7 @@ jobs:
         requires: [~pr, ~commit]
         template: sd/noop
         steps:
-            - echo: echo hi
-            - meta: |
+            - noop: echo hi
+            - teardown-meta: |
                 meta set meta.status.coverage '{"status":"SUCCESS","message":"Coverage is above 80%."}'
                 meta set meta.status.pendingTest '{"status":"PENDING","message":"Still working on it."}'
